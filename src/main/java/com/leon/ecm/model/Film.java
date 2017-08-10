@@ -1,11 +1,9 @@
 package com.leon.ecm.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table
@@ -21,12 +19,29 @@ public class Film {
     @Getter @Setter
     private String name;
 
+    //private List<String> producer;
+
+    //private List<String> publisher;
+
+    @Getter @Setter
+    private OffsetDateTime publishedDate;
+
+    @Getter @Setter
+    private double duration;
+
+    @Getter @Setter
+    private String country;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Film(String name) {
+    @Builder
+    public Film(String name, OffsetDateTime publishedDate, double duration, String country) {
         this.name = name;
+        this.publishedDate = publishedDate;
+        this.duration = duration;
+        this.country = country;
     }
 
     @Override

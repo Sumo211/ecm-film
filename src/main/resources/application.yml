@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql:film
     username: postgres
-    password: 123456
+    password: Hoaibao211
   jpa:
     hibernate:
       ddl-auto: create-drop
