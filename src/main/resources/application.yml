@@ -1,11 +1,12 @@
 spring:
   datasource:
-    url: jdbc:postgresql:film
+    url: jdbc:postgresql:product
     username: postgres
     password: Hoaibao211
   jpa:
     hibernate:
       ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   data:
     rest:
       base-path: /api
