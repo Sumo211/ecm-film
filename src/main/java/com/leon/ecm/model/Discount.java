@@ -1,5 +1,6 @@
 package com.leon.ecm.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,13 +20,14 @@ public class Discount {
 
     private long stop;
 
-    @OneToOne(mappedBy = "discount")
+    @OneToOne(mappedBy = "discount", cascade = CascadeType.ALL)
     private Product product;
 
     public Discount() {
 
     }
 
+    @Builder
     public Discount(double value, long from, long to) {
         this.value = value;
         this.start = from;

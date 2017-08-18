@@ -1,15 +1,17 @@
 package com.leon.ecm.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
 @Table
 @Data
-public class Category {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,6 +31,7 @@ public class Category {
 
     }
 
+    @Builder
     public Category(String name, String description) {
         this.name = name;
         this.description = description;

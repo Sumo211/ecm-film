@@ -1,5 +1,6 @@
 package com.leon.ecm.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class Producer {
 
     }
 
+    @Builder
     public Producer(String name, String country) {
         this.name = name;
         this.country = country;

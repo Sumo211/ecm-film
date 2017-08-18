@@ -1,5 +1,6 @@
 package com.leon.ecm.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public class Product {
 
     private double price;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "discount_id")
     private Discount discount;
 
@@ -36,6 +37,7 @@ public class Product {
 
     }
 
+    @Builder
     public Product(String name, String code, double price) {
         this.name = name;
         this.code = code;
