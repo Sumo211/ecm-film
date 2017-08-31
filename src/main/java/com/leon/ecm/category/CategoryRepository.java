@@ -1,6 +1,5 @@
-package com.leon.ecm.repository;
+package com.leon.ecm.category;
 
-import com.leon.ecm.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 

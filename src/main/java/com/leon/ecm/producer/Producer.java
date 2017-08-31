@@ -1,5 +1,6 @@
-package com.leon.ecm.model;
+package com.leon.ecm.producer;
 
+import com.leon.ecm.product.Product;
 import lombok.Builder;
 import lombok.Data;
 

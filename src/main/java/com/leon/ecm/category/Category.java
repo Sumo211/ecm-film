@@ -1,17 +1,17 @@
-package com.leon.ecm.model;
+package com.leon.ecm.category;
 
+import com.leon.ecm.product.Product;
 import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
 @Table
 @Data
-public class Category implements Serializable {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -21,10 +21,7 @@ public class Category implements Serializable {
 
     private String description;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "product_category",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
+    @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
     private Collection<Product> products = new ArrayList<>();
 
     public Category() {

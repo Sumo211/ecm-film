@@ -1,5 +1,8 @@
-package com.leon.ecm.model;
+package com.leon.ecm.product;
 
+import com.leon.ecm.category.Category;
+import com.leon.ecm.discount.Discount;
+import com.leon.ecm.producer.Producer;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,15 +25,17 @@ public class Product {
 
     private double price;
 
-    @OneToOne
-    @JoinColumn(name = "discount_id")
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private Discount discount;
 
     @ManyToOne
     @JoinColumn(name = "producer_id")
     private Producer producer;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany
+    @JoinTable(name = "product_category",
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id"))
     private Collection<Category> categories = new ArrayList<>();
 
     public Product() {

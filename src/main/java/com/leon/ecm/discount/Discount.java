@@ -1,5 +1,6 @@
-package com.leon.ecm.model;
+package com.leon.ecm.discount;
 
+import com.leon.ecm.product.Product;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,7 +21,8 @@ public class Discount {
 
     private long stop;
 
-    @OneToOne(mappedBy = "discount", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Discount() {
