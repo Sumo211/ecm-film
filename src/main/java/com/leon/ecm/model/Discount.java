@@ -20,7 +20,8 @@ public class Discount {
 
     private long stop;
 
-    @OneToOne(mappedBy = "discount", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public Discount() {
