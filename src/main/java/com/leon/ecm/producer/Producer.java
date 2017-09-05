@@ -1,5 +1,6 @@
 package com.leon.ecm.producer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leon.ecm.product.Product;
 import lombok.Builder;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Producer {
 
     private String country;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "producer", cascade = CascadeType.ALL)
     private Collection<Product> products = new ArrayList<>();
 
