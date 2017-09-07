@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ProducerController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody Producer producer) {
+    public ResponseEntity<Void> create(@RequestBody @Valid Producer producer) {
         Producer newProducer = producerService.save(producer);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newProducer.getId()).toUri();
         return ResponseEntity.created(location).build();
@@ -35,7 +36,7 @@ public class ProducerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Producer producer) {
+    public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody @Valid Producer producer) {
         Producer updatedProducer = producerService.update(id, producer);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(updatedProducer.getId()).toUri();
         return ResponseEntity.ok().location(location).build();

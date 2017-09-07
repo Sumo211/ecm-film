@@ -29,7 +29,6 @@ public class Product {
     private Discount discount;
 
     @ManyToOne
-    @JoinColumn(name = "producer_id")
     private Producer producer;
 
     @ManyToMany
