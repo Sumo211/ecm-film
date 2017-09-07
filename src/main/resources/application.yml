@@ -1,17 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql:product
+    url: jdbc:postgresql:jpa
     username: postgres
     password: Hoaibao211
   jpa:
     hibernate:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-  data:
-    rest:
-      base-path: /api
-  cache:
-    type: redis
-  redis:
-    host: localhost
-    port: 6379
